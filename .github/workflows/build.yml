@@ -9,7 +9,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -19,7 +21,7 @@ jobs:
       run: |
         pip install pyqt5 requests pyinstaller
 
-    - name: Build exe
+    - name: Build EXE
       run: |
         pyinstaller --onefile --noconsole ebay_checker.py
 
